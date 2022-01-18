@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+    <p>Main page</p>
+
+    <p>Users</p>
+    <ul th:each="users: ${users}">
+        <td th:text="${user.id}" />
+        <td th:text="${user.username}" />
+        <sec:authorize access="hasRole('ADMIN')">
+            <td th:text="${user.email}" />
+            <td th:text="${user.role}" />
+        </sec:authorize>
+    </ul>
+
+    <hr/>
+    <form action="${/logout}" method="post">
+        <p><input type="submit" value="Logout"></p>
+    </form>
+</body>
+</html>

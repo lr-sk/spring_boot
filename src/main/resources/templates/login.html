@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+</head>
+<body>
+    <h1>Login page</h1>
+    <p th:if="${loginError}" class="error">Wrong user or password</p>
+    <form th:action="@{/login-action}" method="post">
+        <p>
+            <label for="username">Username</label>:
+            <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+        </p>
+        <p>
+            <label for="password">Password</label>:
+            <input type="password" id="password" name="password" /> <br />
+        </p>
+        <p><input type="submit" value="Log in" /></p>
+    </form>
+</body>
+</html>
