@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
 </head>
 <body>
     <p>Main page</p>
+    <span sec:authentication="principal.authorities"></span>
 
     <p>Users</p>
     <ul th:each="user: ${users}">
