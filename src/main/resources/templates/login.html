@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Login page</h1>
-    <p th:if="${loginError}" class="error">Wrong user or password</p>
+    <p th:if="${loginError}" class="error">Bad credentials</p>
     <form th:action="@{/login-action}" method="post">
         <p>
             <label for="username">Username</label>:
