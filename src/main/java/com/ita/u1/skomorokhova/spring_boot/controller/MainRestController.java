@@ -36,4 +36,10 @@ public class MainRestController {
         return "login";
     }
 
+    @RequestMapping(value = "/logout-action")
+    public String logout(Model model) {
+        model.addAttribute("logout", true);
+        return "login";
+    }
+
 }

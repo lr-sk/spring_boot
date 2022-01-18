@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
@@ -8,17 +9,15 @@
     <p>Main page</p>
 
     <p>Users</p>
-    <ul th:each="users: ${users}">
+    <ul th:each="user: ${users}">
         <td th:text="${user.id}" />
         <td th:text="${user.username}" />
-        <sec:authorize access="hasRole('ADMIN')">
-            <td th:text="${user.email}" />
-            <td th:text="${user.role}" />
-        </sec:authorize>
+        <td th:text="${user.email}" sec:authorize access="hasRole('ADMIN')" />
+        <td th:text="${user.role}" sec:authorize access="hasRole('ADMIN')" />
     </ul>
 
     <hr/>
-    <form action="${/logout}" method="post">
+    <form th:action="@{/logout-action}" method="post">
         <p><input type="submit" value="Logout"></p>
     </form>
 </body>
