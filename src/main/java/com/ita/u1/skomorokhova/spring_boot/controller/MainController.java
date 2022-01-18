@@ -6,11 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MainRestController {
+public class MainController {
 
     private UserServiceImpl userService;
 
-    public MainRestController(UserServiceImpl userService) {
+    public MainController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
