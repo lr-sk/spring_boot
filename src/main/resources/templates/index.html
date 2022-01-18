@@ -7,14 +7,13 @@
 </head>
 <body>
     <p>Main page</p>
-    <span sec:authentication="principal.authorities"></span>
 
     <p>Users</p>
     <ul th:each="user: ${users}">
         <td th:text="${user.id}" />
         <td th:text="${user.username}" />
-        <td th:text="${user.email}" sec:authorize access="hasRole('ADMIN')" />
-        <td th:text="${user.role}" sec:authorize access="hasRole('ADMIN')" />
+        <td th:text="${user.email}" sec:authorize="hasAuthority('ADMIN')" />
+        <td th:text="${user.role}" sec:authorize="hasAuthority('ADMIN')" />
     </ul>
 
     <hr/>
